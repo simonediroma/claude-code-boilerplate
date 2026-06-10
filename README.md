@@ -31,10 +31,11 @@ chmod +x setup.sh
 
 Lo script chiede:
 - Nome del progetto
-- Branch di sviluppo
 - File invariati da non toccare
 
 E genera automaticamente `CLAUDE_MEMORY.md` con la data odierna.
+
+> **Modello di lavoro:** ogni task è una sessione separata su un branch dedicato, generato automaticamente da Claude Code. Non esiste un branch fisso — ogni sessione parte da `main` e apre la sua PR.
 
 ### 3. Compila `docs/architecture.md`
 

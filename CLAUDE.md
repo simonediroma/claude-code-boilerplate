@@ -10,8 +10,8 @@
    - Aggiorna `Ultima sessione` con la data odierna
    - Scrivi `Prossima sessione — inizia da qui` in modo esplicito e actionable
    - Aggiorna `PR corrente` e `Branch` se cambiati
-3. **Branch:** lavora sempre su `{{DEFAULT_BRANCH}}`. Mai push su `main`.
-4. **PR:** una PR per sessione di lavoro. Ogni PR deve essere indipendente e reviewable.
+3. **Branch:** ogni sessione ha il suo branch dedicato, generato automaticamente da Claude Code (es. `claude/nome-branch`). Mai push su `main`.
+4. **PR:** una PR per task/sessione. Ogni PR deve essere indipendente e reviewable.
 5. **File invariati:** non toccare mai {{INVARIANT_FILES}}.
 
 ---
