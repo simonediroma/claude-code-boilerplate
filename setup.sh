@@ -9,13 +9,11 @@ echo ""
 
 # Input
 read -p "Nome progetto (es. MyApp): " PROJECT_NAME
-read -p "Branch di sviluppo (es. claude/main-branch): " DEFAULT_BRANCH
 read -p "File invariati da non toccare mai (es. legacy.py, data/): " INVARIANT_FILES
 
 echo ""
 echo "Configurazione:"
 echo "  Progetto:       $PROJECT_NAME"
-echo "  Branch:         $DEFAULT_BRANCH"
 echo "  File invariati: $INVARIANT_FILES"
 echo ""
 read -p "Confermi? (y/n): " CONFIRM
@@ -26,7 +24,6 @@ fi
 
 # Sostituisci placeholder in CLAUDE.md
 sed -i "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" CLAUDE.md
-sed -i "s/{{DEFAULT_BRANCH}}/$DEFAULT_BRANCH/g" CLAUDE.md
 sed -i "s/{{INVARIANT_FILES}}/$INVARIANT_FILES/g" CLAUDE.md
 
 # Sostituisci placeholder in docs/architecture.md
@@ -39,7 +36,6 @@ sed -i "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" docs/lessons.md
 # Crea CLAUDE_MEMORY.md da template
 TODAY=$(date +%Y-%m-%d)
 sed "s/{{DATA}}/$TODAY/g" CLAUDE_MEMORY.md.template \
-  | sed "s/{{DEFAULT_BRANCH}}/$DEFAULT_BRANCH/g" \
   | sed "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" \
   > CLAUDE_MEMORY.md
 
