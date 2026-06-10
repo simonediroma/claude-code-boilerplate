@@ -1,0 +1,22 @@
+# Stato Corrente
+> Gitignored. Aggiornato da Claude a fine sessione.
+
+**Ultima sessione:** {{DATA}}
+**Branch:** `{{DEFAULT_BRANCH}}`
+**PR in corso:** nessuna
+
+## Prossima sessione — inizia da qui
+
+- [ ] {{PRIMO_STEP}}
+
+## Prossime PR
+
+- PR-1: {{DESCRIZIONE}}
+
+## Blockers
+
+- nessuno
+
+## PR completate
+
+nessuna
