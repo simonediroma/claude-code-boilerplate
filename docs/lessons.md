@@ -1,53 +1,53 @@
-# Lezioni Imparate — {{PROJECT_NAME}}
+# Lessons Learned — {{PROJECT_NAME}}
 
-Lezioni operative emerse durante lo sviluppo. Da consultare prima di implementare qualcosa di nuovo.
+Operative lessons that emerged during development. Consult before implementing anything new.
 
 ---
 
-## Generali (universali)
+## General (universal)
 
-**Ogni unità di lavoro è indipendente**
-Un errore su un elemento non deve mai bloccare gli altri. Pattern: `try/except` per elemento nel loop principale, log dell'errore, `continue`.
+**Every unit of work is independent**
+An error on one element must never block the others. Pattern: `try/except` per element in the main loop, log the error, `continue`.
 
-**Lazy loading per moduli pesanti**
-Moduli con import costosi (ML, cloud SDK, scraping) vanno importati solo quando la funzionalità viene effettivamente usata, non al top-level. Evita timeout e startup lenti.
+**Lazy loading for heavy modules**
+Modules with expensive imports (ML, cloud SDK, scraping) should be imported only when the feature is actually used, not at the top level. Avoids timeouts and slow startup.
 
-**Batch prima di parallelizzare**
-Pre-carica tutti i dati necessari in un unico batch prima di parallelizzare con thread/async. Ogni thread che fa I/O separato moltiplica i costi e i tempi.
+**Batch before parallelizing**
+Pre-load all required data in a single batch before parallelizing with threads/async. Each thread doing separate I/O multiplies costs and latency.
 
-**Singleton per client costosi**
-Client verso API esterne (DB, cloud, LLM) vanno istanziati una volta sola e riusati. Usa cache/decorator appropriati per il framework in uso.
+**Singleton for expensive clients**
+Clients to external APIs (DB, cloud, LLM) should be instantiated once and reused. Use appropriate cache/decorator patterns for the framework in use.
 
 ---
 
 ## Database
 
-**Evita query N+1**
-Una query per elemento in un loop è sempre un bug di performance. Sostituire con una query batch con `IN (...)` o `UNNEST`.
+**Avoid N+1 queries**
+One query per element in a loop is always a performance bug. Replace with a batch query using `IN (...)` or `UNNEST`.
 
-**Indici su colonne filtrate frequentemente**
-Qualsiasi colonna usata in `WHERE` o `ORDER BY` su tabelle grandi va indicizzata. Verificare con `EXPLAIN` prima di andare in produzione.
-
----
-
-## API e Integrazioni
-
-**Exponential backoff su tutte le chiamate esterne**
-Rate limiting e errori temporanei sono la norma, non l'eccezione. Backoff: 2s → 4s → 8s → 16s, max 4 retry.
-
-**Credenziali sempre da variabili d'ambiente**
-Mai hardcodare API key, token, password nel codice o nei file committati. Usare `.env` + `.gitignore` o secret manager.
-
-**Validare la risposta prima di usarla**
-Le API esterne cambiano formato senza preavviso. Validare la struttura della risposta prima di accedere a campi specifici.
+**Index frequently filtered columns**
+Any column used in `WHERE` or `ORDER BY` on large tables must be indexed. Verify with `EXPLAIN` before going to production.
 
 ---
 
-## Specifiche del Progetto
+## APIs and Integrations
 
-> Aggiungere qui le lezioni emerse durante lo sviluppo di {{PROJECT_NAME}}.
+**Exponential backoff on all external calls**
+Rate limiting and transient errors are the norm, not the exception. Backoff: 2s → 4s → 8s → 16s, max 4 retries.
 
-<!-- Esempio:
-**Titolo lezione**
-Descrizione del problema incontrato e della soluzione adottata. Includere il file/modulo coinvolto.
+**Credentials always from environment variables**
+Never hardcode API keys, tokens, or passwords in code or committed files. Use `.env` + `.gitignore` or a secret manager.
+
+**Validate the response before using it**
+External APIs change format without notice. Validate the response structure before accessing specific fields.
+
+---
+
+## Project-Specific
+
+> Add lessons that emerge during development of {{PROJECT_NAME}} here.
+
+<!-- Example:
+**Lesson title**
+Description of the problem encountered and the solution adopted. Include the file/module involved.
 -->

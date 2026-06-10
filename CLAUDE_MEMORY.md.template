@@ -1,22 +1,22 @@
-# Stato Corrente
-> Gitignored. Aggiornato da Claude a fine sessione.
+# Current State
+> Gitignored. Updated by Claude at the end of each session.
 
-**Ultima sessione:** {{DATA}}
-**Branch:** `{{DEFAULT_BRANCH}}`
-**PR in corso:** nessuna
+**Last session:** {{DATA}}
+**Current branch:** *(updated by Claude at session start)*
+**PR in progress:** none
 
-## Prossima sessione — inizia da qui
+## Next session — start here
 
-- [ ] {{PRIMO_STEP}}
+- [ ] {{FIRST_STEP}}
 
-## Prossime PR
+## Upcoming PRs
 
-- PR-1: {{DESCRIZIONE}}
+- PR-1: {{DESCRIPTION}}
 
 ## Blockers
 
-- nessuno
+- none
 
-## PR completate
+## Completed PRs
 
-nessuna
+none

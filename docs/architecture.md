@@ -1,91 +1,91 @@
-# {{PROJECT_NAME}} — Architettura e Riferimenti Tecnici
+# {{PROJECT_NAME}} — Architecture and Technical References
 
-## Progetto
+## Project
 
-**{{PROJECT_NAME}}** — {{DESCRIZIONE_BREVE}}
+**{{PROJECT_NAME}}** — {{BRIEF_DESCRIPTION}}
 
-**Obiettivo:** {{OBIETTIVO}}
+**Goal:** {{GOAL}}
 
 ---
 
-## Stack Tecnico
+## Tech Stack
 
-| Layer | Tecnologia |
+| Layer | Technology |
 |-------|-----------|
-| Frontend | {{es. Streamlit / React / CLI}} |
-| Backend | {{es. Python / Node.js}} |
-| Database | {{es. BigQuery / PostgreSQL / SQLite}} |
-| Deploy | {{es. Cloud Run / Vercel / Docker}} |
-| AI | {{es. Gemini / OpenAI / Anthropic}} |
+| Frontend | {{e.g. Streamlit / React / CLI}} |
+| Backend | {{e.g. Python / Node.js}} |
+| Database | {{e.g. BigQuery / PostgreSQL / SQLite}} |
+| Deploy | {{e.g. Cloud Run / Vercel / Docker}} |
+| AI | {{e.g. Gemini / OpenAI / Anthropic}} |
 
 ---
 
-## Architettura
+## Architecture
 
-{{Descrivi il pattern architetturale principale}}
+{{Describe the main architectural pattern}}
 
-### Struttura File
+### File Structure
 
 ```
 {{PROJECT_DIR}}/
-├── {{file principale}}
-├── {{modulo core}}/
+├── {{main file}}
+├── {{core module}}/
 │   └── ...
 └── ...
 ```
 
 ---
 
-## Infrastruttura
+## Infrastructure
 
-| Risorsa | Valore |
-|---------|--------|
-| {{es. GCP Project}} | {{valore}} |
-| {{es. Database}} | {{valore}} |
-| {{es. Region}} | {{valore}} |
-
----
-
-## Modelli AI
-
-| Modello | Provider | Uso |
-|---------|----------|-----|
-| {{modello}} | {{provider}} | {{uso}} |
+| Resource | Value |
+|----------|-------|
+| {{e.g. GCP Project}} | {{value}} |
+| {{e.g. Database}} | {{value}} |
+| {{e.g. Region}} | {{value}} |
 
 ---
 
-## Schema I/O
+## AI Models
+
+| Model | Provider | Use |
+|-------|----------|-----|
+| {{model}} | {{provider}} | {{use}} |
+
+---
+
+## I/O Schema
 
 **Input:**
 ```
-{{formato input}}
+{{input format}}
 ```
 
 **Output:**
 ```
-{{formato output}}
+{{output format}}
 ```
 
 ---
 
-## Note Operative
+## Operative Notes
 
-- {{nota 1}}
-- {{nota 2}}
+- {{note 1}}
+- {{note 2}}
 
 ---
 
 ## Deploy
 
 ```bash
-{{comando deploy}}
+{{deploy command}}
 ```
 
 ---
 
-## Comandi Utili
+## Useful Commands
 
 ```bash
-{{comando 1}}   # descrizione
-{{comando 2}}   # descrizione
+{{command 1}}   # description
+{{command 2}}   # description
 ```

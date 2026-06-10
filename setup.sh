@@ -1,6 +1,6 @@
 #!/bin/bash
-# setup.sh — Inizializza un nuovo progetto Claude Code dal boilerplate
-# Uso: ./setup.sh
+# setup.sh — Initialize a new Claude Code project from the boilerplate
+# Usage: ./setup.sh
 
 set -e
 
@@ -8,52 +8,48 @@ echo "=== Claude Code Boilerplate Setup ==="
 echo ""
 
 # Input
-read -p "Nome progetto (es. MyApp): " PROJECT_NAME
-read -p "Branch di sviluppo (es. claude/main-branch): " DEFAULT_BRANCH
-read -p "File invariati da non toccare mai (es. legacy.py, data/): " INVARIANT_FILES
+read -p "Project name (e.g. MyApp): " PROJECT_NAME
+read -p "Invariant files to never touch (e.g. legacy.py, data/): " INVARIANT_FILES
 
 echo ""
-echo "Configurazione:"
-echo "  Progetto:       $PROJECT_NAME"
-echo "  Branch:         $DEFAULT_BRANCH"
-echo "  File invariati: $INVARIANT_FILES"
+echo "Configuration:"
+echo "  Project:         $PROJECT_NAME"
+echo "  Invariant files: $INVARIANT_FILES"
 echo ""
-read -p "Confermi? (y/n): " CONFIRM
+read -p "Confirm? (y/n): " CONFIRM
 if [[ "$CONFIRM" != "y" ]]; then
-  echo "Annullato."
+  echo "Cancelled."
   exit 0
 fi
 
-# Sostituisci placeholder in CLAUDE.md
+# Replace placeholders in CLAUDE.md
 sed -i "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" CLAUDE.md
-sed -i "s/{{DEFAULT_BRANCH}}/$DEFAULT_BRANCH/g" CLAUDE.md
 sed -i "s/{{INVARIANT_FILES}}/$INVARIANT_FILES/g" CLAUDE.md
 
-# Sostituisci placeholder in docs/architecture.md
+# Replace placeholders in docs/architecture.md
 sed -i "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" docs/architecture.md
 sed -i "s/{{PROJECT_DIR}}/$(echo $PROJECT_NAME | tr '[:upper:]' '[:lower:]' | tr ' ' '-')/g" docs/architecture.md
 
-# Sostituisci placeholder in docs/lessons.md
+# Replace placeholders in docs/lessons.md
 sed -i "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" docs/lessons.md
 
-# Crea CLAUDE_MEMORY.md da template
+# Create CLAUDE_MEMORY.md from template
 TODAY=$(date +%Y-%m-%d)
 sed "s/{{DATA}}/$TODAY/g" CLAUDE_MEMORY.md.template \
-  | sed "s/{{DEFAULT_BRANCH}}/$DEFAULT_BRANCH/g" \
   | sed "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" \
   > CLAUDE_MEMORY.md
 
 echo ""
-echo "✓ CLAUDE.md configurato"
-echo "✓ docs/architecture.md configurato"
-echo "✓ docs/lessons.md configurato"
-echo "✓ CLAUDE_MEMORY.md creato (gitignored)"
+echo "✓ CLAUDE.md configured"
+echo "✓ docs/architecture.md configured"
+echo "✓ docs/lessons.md configured"
+echo "✓ CLAUDE_MEMORY.md created (gitignored)"
 echo ""
-echo "Prossimi passi:"
-echo "  1. Compila docs/architecture.md con l'architettura del progetto"
-echo "  2. Avvia Claude Code: claude"
-echo "  3. Approva gli import @docs/architecture.md e @docs/lessons.md quando richiesto"
+echo "Next steps:"
+echo "  1. Fill in docs/architecture.md with your project architecture"
+echo "  2. Start Claude Code: claude"
+echo "  3. Approve the @docs/architecture.md and @docs/lessons.md imports when prompted"
 echo ""
-echo "Opzionale:"
-echo "  - Installa Graphify: pip install graphifyy && graphify install"
-echo "  - Poi dentro Claude Code: /graphify . --mode deep"
+echo "Optional:"
+echo "  - Install Graphify: pip install graphifyy && graphify install"
+echo "  - Then inside Claude Code: /graphify . --mode deep"
