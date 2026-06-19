@@ -5,7 +5,7 @@
 ## ⚡ ISTRUZIONI OPERATIVE PER CLAUDE — LEGGERE SEMPRE
 
 1. **Inizio sessione:** leggi `@CLAUDE_MEMORY.md` per lo stato corrente. Quella è la tua partenza.
-2. **Fine sessione:** prima del commit finale, aggiorna obbligatoriamente `CLAUDE_MEMORY.md` (gitignored — non committare):
+2. **Fine sessione:** prima del commit finale, aggiorna obbligatoriamente `CLAUDE_MEMORY.md` (gitignored in locale — in uso web, committare e pushare ad ogni fine sessione):
    - Marca i task completati con `[x]`
    - Aggiorna `Ultima sessione` con la data odierna
    - Scrivi `Prossima sessione — inizia da qui` in modo esplicito e actionable

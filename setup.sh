@@ -39,11 +39,24 @@ sed "s/{{DATA}}/$TODAY/g" CLAUDE_MEMORY.md.template \
   | sed "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" \
   > CLAUDE_MEMORY.md
 
+# Crea .gitignore con nota su CLAUDE_MEMORY.md
+cat >> .gitignore << 'EOF'
+
+# CLAUDE_MEMORY.md — gitignore solo se usi Claude Code in locale (CLI/IDE).
+# Se usi Claude Code da web (claude.ai/code), NON ignorarlo:
+# il file deve essere committato e pushato per persistere tra sessioni.
+# Decommentare la riga sotto solo per uso locale:
+# CLAUDE_MEMORY.md
+EOF
+
 echo ""
 echo "✓ CLAUDE.md configurato"
 echo "✓ docs/architecture.md configurato"
 echo "✓ docs/lessons.md configurato"
-echo "✓ CLAUDE_MEMORY.md creato (gitignored)"
+echo "✓ CLAUDE_MEMORY.md creato"
+echo "  → In uso locale: aggiungi 'CLAUDE_MEMORY.md' al .gitignore (vedi commento nel file)"
+echo "  → In uso web (claude.ai/code): committare e pushare ad ogni fine sessione"
+echo "✓ .gitignore creato con istruzioni"
 echo ""
 echo "Prossimi passi:"
 echo "  1. Compila docs/architecture.md con l'architettura del progetto"
