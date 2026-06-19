@@ -6,6 +6,11 @@ Lezioni operative emerse durante lo sviluppo. Da consultare prima di implementar
 
 ## Generali (universali)
 
+**CLAUDE_MEMORY.md: gitignore dipende dall'ambiente**
+In uso locale (CLI/IDE), aggiungere `CLAUDE_MEMORY.md` al `.gitignore` per non committarlo.
+In uso web (claude.ai/code / remote environment), il file va committato e pushato ad ogni fine sessione,
+altrimenti Claude non lo trova all'avvio della sessione successiva (l'ambiente è efimero e non persiste).
+
 **Ogni unità di lavoro è indipendente**
 Un errore su un elemento non deve mai bloccare gli altri. Pattern: `try/except` per elemento nel loop principale, log dell'errore, `continue`.
 
