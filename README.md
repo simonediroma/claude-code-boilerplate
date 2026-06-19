@@ -7,10 +7,10 @@ Template per progetti Claude Code con memoria persistente, documentazione strutt
 | File | Scopo |
 |------|-------|
 | `CLAUDE.md` | Istruzioni operative + Karpathy rules + riferimenti |
-| `CLAUDE_MEMORY.md` | Stato sessione corrente (gitignored, generato da setup.sh) |
+| `CLAUDE_MEMORY.md` | Stato sessione corrente (generato da setup.sh — vedi nota gitignore sotto) |
 | `docs/architecture.md` | Architettura, stack, infrastruttura, schema I/O |
 | `docs/lessons.md` | Lezioni operative e pattern consolidati |
-| `.gitignore` | Include CLAUDE_MEMORY.md + pattern comuni |
+| `.gitignore` | Creato da setup.sh con istruzioni su CLAUDE_MEMORY.md |
 | `setup.sh` | Script di inizializzazione interattivo |
 
 ## Utilizzo
@@ -53,10 +53,19 @@ La prima volta Claude chiederà di approvare gli import `@docs/architecture.md` 
 
 ```
 CLAUDE.md          → regole fisse (committato)
-CLAUDE_MEMORY.md   → stato sessione (gitignored, aggiornato da Claude)
+CLAUDE_MEMORY.md   → stato sessione (aggiornato da Claude — vedi "Locale vs Web" sotto)
 docs/architecture.md → riferimento tecnico (committato, aggiornato quando cambia l'architettura)
 docs/lessons.md    → lezioni operative (committato, cresce nel tempo)
 ```
+
+## Locale vs Web
+
+Il comportamento di `CLAUDE_MEMORY.md` dipende dall'ambiente di lavoro:
+
+| Ambiente | Comportamento |
+|----------|--------------|
+| **Locale** (CLI / IDE) | Aggiungere `CLAUDE_MEMORY.md` al `.gitignore` — il file persiste sul disco tra sessioni. Il file `.gitignore` creato da `setup.sh` include già la riga commentata da decommentare. |
+| **Web** (claude.ai/code / remote) | **Non** ignorare il file — l'ambiente è efimero. Claude deve committare e pushare `CLAUDE_MEMORY.md` ad ogni fine sessione, altrimenti lo stato viene perso. |
 
 ## Plugin consigliati
 
@@ -76,3 +85,5 @@ Claude aggiorna automaticamente `CLAUDE_MEMORY.md` prima del commit finale con:
 - Prossimi step
 - Blockers aperti
 - PR corrente e branch
+
+In uso web (claude.ai/code), Claude committa e pusha anche `CLAUDE_MEMORY.md` insieme agli altri file, in modo che la sessione successiva parta dallo stato corretto.
